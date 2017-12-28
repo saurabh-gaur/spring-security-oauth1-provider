@@ -1,0 +1,19 @@
+package ${packageName}
+
+class ${OAuthConsumerClassName} {
+
+	String consumerKey
+	String consumerName
+	String consumerSecret
+
+	static hasMany = [
+		authorities: String
+	]
+
+	static constraints = {
+		consumerKey blank: false, unique: true
+		consumerSecret nullable: true
+		consumerName nullable: true
+		authorities nullable: true
+	}
+}
