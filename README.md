@@ -17,6 +17,8 @@ Install the OAuth1 plugin by adding a dependency in `grails-app/conf/BuildConfig
     plugins {
       compile ":spring-security-oauth1-provider:1.0"
     }
+    
+### Note :- It's not verified yet by Grails community, hence need to pull this plugin from here directly and compile it locally into your project.
 
 ## 2. Create Domain Classes
 
