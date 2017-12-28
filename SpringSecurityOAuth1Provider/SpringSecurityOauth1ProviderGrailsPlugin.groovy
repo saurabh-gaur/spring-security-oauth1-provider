@@ -19,26 +19,27 @@ import com.security.oauth.handler.OAuthFailureAuthenticationHandler
 import com.security.oauth.handler.OAuthProcessingFilterEntryPointWrapper
 import com.security.oauth.provider.OAuthAuthenticationProviderService
 
-class SpringSecurityOAuth1ProviderGrailsPlugin {
+/**
+ * @author Saurabh
+ */
+class SpringSecurityOauth1ProviderGrailsPlugin {
 	// the plugin version
-	def version = "0.1"
+	def version = "1.0"
 	// the version or versions of Grails the plugin is designed for
 	def grailsVersion = "2.5 > *"
 	// resources that are excluded from plugin packaging
-	def pluginExcludes = [
-		"grails-app/views/error.gsp"
-	]
+	def pluginExcludes = ["grails-app/views/error.gsp"]
 
 	// TODO Fill in these fields
 	def title = "Spring Security OAuth 1 Provider" // Headline display name of the plugin
 	def author = "Saurabh Gaur"
 	def authorEmail = "saurabh.gaur@bqurious.com"
 	def description = '''\
-Brief summary/description of the plugin.
+Spring scurity oauth1 provider
 '''
 
 	// URL to the plugin's documentation
-	def documentation = "http://grails.org/plugin/spring-security-oauth-1-provider"
+	def documentation = "https://saurabh-gaur.github.io/spring-security-oauth1-provider"
 
 	// Extra (optional) plugin metadata
 
@@ -74,16 +75,11 @@ Brief summary/description of the plugin.
 		SpringSecurityUtils.loadSecondaryConfig 'DefaultSpringSecurityOAuth1ProviderConfig'
 		// have to get again after overlaying DefaultSpringSecurityOAuth1ProviderConfig
 		conf = SpringSecurityUtils.securityConfig
-		
+
 		println "... done configuring Spring Security OAuth1 provider"
 
 		//now set providers
-		conf.providerNames = [
-			'daoAuthenticationProvider',
-			'oauthAuthenticationProvider',
-			'anonymousAuthenticationProvider',
-			'rememberMeAuthenticationProvider'
-		]
+		conf.providerNames = ['daoAuthenticationProvider', 'oauthAuthenticationProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 
 		SpringSecurityUtils.registerFilter 'oauthRequestTokenFilter',
 				SecurityFilterPosition.EXCEPTION_TRANSLATION_FILTER.order + 1
